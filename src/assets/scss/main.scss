@@ -1,0 +1,53 @@
+@import "~normalize.css";
+
+$app-font-family: 'Playfair Display', serif;
+
+$app-fg-color: #ffffff;
+$app-bg-color: #001020;
+$app-accent-color: #0080f0;
+$app-notice-color: #f00000;
+
+$form--background-color: $app-fg-color;
+$form--foreground-color: $app-bg-color;
+$form--border-color: mix($app-bg-color, $app-fg-color, 50%);
+$form--accent-color: $app-accent-color;
+$form--notice-color: $app-notice-color;
+$form--font-family: $app-font-family;
+
+@import "./_form.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  line-height: 1;
+  margin: 0;
+  outline-style: none;
+  padding: 0;
+}
+
+html {
+  font-size: calc(13px + 0.5vw);
+  height: 100%;
+}
+
+body {
+  background-color: $app-bg-color;
+  color: $app-fg-color;
+  font-family: $app-font-family;
+  font-size: 1rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 0;
+  }
+}
