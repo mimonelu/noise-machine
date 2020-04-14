@@ -9,6 +9,10 @@ const routes: Array<RouteConfig> = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '*',
+    component: Home
   }
 ]
 
