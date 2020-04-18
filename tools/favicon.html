@@ -1,0 +1,16 @@
+<canvas id="canvas" width="512" height="512"></canvas>
+<script>
+const canvas = document.querySelector('#canvas')
+const context = canvas.getContext('2d')
+context.fillStyle = '#808080'
+context.fillRect(0, 0, canvas.width, canvas.height)
+const size = Math.min(canvas.width, canvas.height) / 8
+for (let y = 0, i = 0; y < canvas.height; y += size) {
+  for (let x = 0; x < canvas.width; x += size, i ++) {
+    if ((i % 3) === 0) i = 0
+    const color = (i + 1) * 80
+    context.fillStyle = `rgb(${color / 4}, ${color / 2}, 255)`
+    context.fillRect(x, y, size, size)
+  }
+}
+</script>

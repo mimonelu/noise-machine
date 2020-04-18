@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
+    "serve": "vue-cli-service serve",
     "build": "npm run lint && vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -52,6 +52,7 @@
       "ecmaVersion": 2020
     },
     "rules": {
+      "@typescript-eslint/no-explicit-any": 0,
       "@typescript-eslint/no-inferrable-types": 0,
       "array-bracket-spacing": 0,
       "comma-dangle": 0,

@@ -1,20 +1,6 @@
 @import "~normalize.css";
-
-$app-font-family: 'Playfair Display', serif;
-
-$app-fg-color: #ffffff;
-$app-bg-color: #001020;
-$app-accent-color: #0080f0;
-$app-notice-color: #f00000;
-
-$form--background-color: $app-fg-color;
-$form--foreground-color: $app-bg-color;
-$form--border-color: mix($app-bg-color, $app-fg-color, 50%);
-$form--accent-color: $app-accent-color;
-$form--notice-color: $app-notice-color;
-$form--font-family: $app-font-family;
-
-@import "./_form.scss";
+@import "./_variables";
+@import "./_form";
 
 *,
 *::before,
@@ -32,8 +18,8 @@ html {
 }
 
 body {
-  background-color: $app-bg-color;
-  color: $app-fg-color;
+  background-color: $app-background-color;
+  color: $app-foreground-color;
   font-family: $app-font-family;
   font-size: 1rem;
   -moz-osx-font-smoothing: grayscale;

@@ -1,0 +1,13 @@
+$app-font-family: "Times New Roman", Times, serif;
+
+$app-foreground-color: #ffffff;
+$app-background-color: #001020;
+$app-accent-color: #0080f0;
+$app-notice-color: #f00000;
+
+$form--background-color: $app-foreground-color;
+$form--foreground-color: $app-background-color;
+$form--border-color: mix($app-background-color, $app-foreground-color, 50%);
+$form--accent-color: $app-accent-color;
+$form--notice-color: $app-notice-color;
+$form--font-family: $app-font-family;

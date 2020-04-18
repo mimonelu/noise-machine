@@ -5,7 +5,7 @@
   color: $form--foreground-color;
   display: inline-block;
   font-family: $form--font-family;
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.25; // for normalize.css
   &:focus {
     outline: none;
@@ -26,16 +26,16 @@
   align-items: center;
   font-family: $form--font-family;
   line-height: 1.25; // for normalize.css
-  padding: 0.5rem;
+  padding: 0.5em;
   user-select: none;
   white-space: nowrap;
 
   input[type="#{$type}"] {
     appearance: none;
-    font-size: 1rem;
-    margin: 0 0.25rem 0 0;
-    width: 1rem;
-    height: 1rem;
+    font-size: 1em;
+    margin: 0 0.25em 0 0;
+    width: 1em;
+    height: 1em;
     &:focus {
       outline: none;
     }
@@ -46,8 +46,8 @@
       content: "";
       cursor: pointer;
       display: block;
-      width: 1rem;
-      height: 1rem;
+      width: 1em;
+      height: 1em;
     }
   }
 
@@ -65,15 +65,15 @@
 
 %form--focus-and-hover {
   border: 1px solid $form--accent-color;
-  box-shadow: 0 0 0.25rem 1px $form--accent-color;
+  box-shadow: 0 0 0.25em 1px $form--accent-color;
   outline: none;
 }
 
 .form {
   &--text {
     @extend %form--box;
-    border-radius: 0.25rem;
-    padding: 0.5rem;
+    border-radius: 0.25em;
+    padding: 0.5em;
     &:not([disabled]):focus, &:not([disabled]):hover {
       @extend %form--focus-and-hover;
     }
@@ -82,13 +82,13 @@
   &--button {
     @extend %form--box;
     background-color: $form--foreground-color;
-    border-radius: 0.25rem;
+    border-radius: 0.25em;
     color: $form--background-color;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     font-weight: 700;
-    padding: 0.5rem 1rem;
+    padding: 0.5em 1em;
     user-select: none;
     white-space: nowrap;
     &:not([disabled]):focus, &:not([disabled]):hover {
@@ -100,7 +100,7 @@
     i {
       color: $form--background-color;
       font-weight: 700;
-      margin-right: 0.25rem;
+      margin-right: 0.25em;
     }
   }
 
@@ -114,11 +114,11 @@
       content: "参照";
       background-color: $form--accent-color;
       border-color: transparent;
-      border-radius: 0.25rem;
+      border-radius: 0.25em;
       color: $form--background-color;
       font-weight: 700;
-      margin-right: 1rem;
-      padding: 0.5rem 1rem;
+      margin-right: 1em;
+      padding: 0.5em 1em;
       white-space: nowrap;
       &:not([disabled]):focus, &:not([disabled]):hover {
         @extend %form--focus-and-hover;
@@ -176,17 +176,17 @@
     }
     &:not([multiple]) {
       background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24"><path fill="%23000000" d="M7,10L12,15L17,10H7Z" /></svg>') no-repeat right center;
-      border-radius: 0.25rem;
+      border-radius: 0.25em;
       cursor: pointer;
-      padding: 0.5rem 2.25rem 0.5rem 0.5rem;
+      padding: 0.5em 2.25em 0.5em 0.5em;
     }
     &[multiple] {
-      border-radius: 0.25rem 0 0 0.25rem;
+      border-radius: 0.25em 0 0 0.25em;
       user-select: none;
 
       option {
         cursor: pointer;
-        padding: 0.25rem 0.5rem;
+        padding: 0.25em 0.5em;
         &:checked {
           // NOTICE: Change background-color with linear-gradient.
           // TODO: Change font color.
@@ -205,6 +205,6 @@
   // MEMO: Added
   &--error {
     color: $form--notice-color;
-    font-size: 0.875rem;
+    font-size: 0.875em;
   }
 }

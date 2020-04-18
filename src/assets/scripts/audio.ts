@@ -24,22 +24,22 @@ export default class {
     }, false)
   }
 
-  prepare () {
+  prepare (options: any) {
     const scale: number = 2
     const rate: number = 48000
     const seconds: number = 10.0 * scale
     this.buffer = this.context.createBuffer(1, rate * seconds, rate)
     const channelData: Float32Array = this.buffer.getChannelData(0)
-    for (let i = 0, j = 0, jj = frandom(- 0.25, 0.25), ii = channelData.length; i < ii; i ++) {
+    for (let i = 0, j = 0, jj = 0, ii = channelData.length; i < ii; i ++) {
       const v0: number = i / ii * Math.PI
       const v1: number = Math.sin(v0 * 4 * scale) * 0.1 + 0.9
       const v2: number = Math.sin(v0 * 3 * scale) * 0.1 + 0.9
-      if ((i % 4) === 0) {
+      if ((i % options.roughness) === 0) {
         jj = frandom(- 0.25, 0.25) * v2
       }
       j += jj * v1
       j = Math.max(- 1.0, Math.min(1.0, j))
-      channelData[i] = j * 0.5
+      channelData[i] = j * options.volume
     }
   }
 
