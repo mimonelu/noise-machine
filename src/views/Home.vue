@@ -17,7 +17,7 @@
         <h3>Roughness</h3>
         <range
           :min="1"
-          :max="20"
+          :max="30"
           :step="1"
           :value="roughness"
           @change="setRoughness"
