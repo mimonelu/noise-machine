@@ -29,6 +29,9 @@
       class="form--button"
       @click="toggle"
     >{{ playButtonLabel }}</button>
+    <footer>
+      <small>Noise Machine v1.1 &copy; 2020-2021 <a href="https://twitter.com/mimonelu" target="_blank" noreferrer>@mimonelu</a></small>
+    </footer>
   </div>
 </template>
 
@@ -148,6 +151,21 @@ export default class HomeView extends Vue {
     span {
       text-align: right;
       width: 5rem;
+    }
+  }
+
+  footer {
+    margin-top: 2rem;
+
+    small {
+      font-size: 0.75rem;
+    }
+
+    a {
+      color: $app-accent-color;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 }
