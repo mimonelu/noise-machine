@@ -47,7 +47,26 @@ export default class HomeView extends Vue {
 
   volume: number = 0.5
 
-  roughness: number = 2
+  roughness: number = 15
+
+  created () {
+    this.loadData()
+  }
+
+  loadData () {
+    const data = JSON.parse(localStorage.getItem('data') || '{}')
+    data.volume = data.volume === undefined ? this.volume : data.volume
+    data.roughness = data.roughness === undefined ? this.roughness : data.roughness
+    this.setVolume(data.volume)
+    this.setRoughness(data.roughness)
+  }
+
+  saveData () {
+    localStorage.setItem('data', JSON.stringify({
+      volume: this.volume,
+      roughness: this.roughness,
+    }))
+  }
 
   setVolume (value: number) {
     const isDiffer = this.volume !== value
@@ -56,6 +75,7 @@ export default class HomeView extends Vue {
       this.audio.stop()
       this.play()
     }
+    this.saveData()
   }
 
   setRoughness (value: number) {
@@ -65,6 +85,7 @@ export default class HomeView extends Vue {
       this.audio.stop()
       this.play()
     }
+    this.saveData()
   }
 
   get playButtonLabel (): string {
