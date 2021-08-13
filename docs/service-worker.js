@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/noise-machine/precache-manifest.f31f3337b523c43df2666e4b704e2861.js"
+  "/noise-machine/precache-manifest.ce71bb840ed73669342ef6e68270cd8d.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "noise-machine"});
