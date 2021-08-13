@@ -13,8 +13,8 @@ export default class App extends Vue {
   mounted () {
     sandStorm(this.$el as HTMLElement, 640, 640, {
       r: [ 0, 24 ],
-      g: [ 0, 40 ],
-      b: [ 0, 56 ],
+      g: [ 0, 48 ],
+      b: [ 0, 96 ],
       a: [ 255, 255 ],
     }, 16)
   }
