@@ -17,5 +17,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 'v14.16.0'
-      - run: npm ci
-      - run: npm run build --if-present
+      - run: |
+          npm ci
+          npm run build --if-present
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "build"
+          git push
