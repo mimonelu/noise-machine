@@ -24,13 +24,25 @@
         />
         <span>{{ roughness }}</span>
       </li>
+      <li>
+        <h3>Detail</h3>
+        <range
+          :min="1"
+          :max="10"
+          :step="1"
+          :value="detail"
+          @change="setDetail"
+        />
+        <span>{{ detail }}</span>
+      </li>
     </ul>
     <button
+      ref="playButton"
       class="form--button"
       @click="toggle"
     >{{ playButtonLabel }}</button>
     <footer>
-      <small>Noise Machine v1.1 &copy; 2020-2021 <a href="https://twitter.com/mimonelu" target="_blank" noreferrer>@mimonelu</a></small>
+      <small>Noise Machine v1.1 &copy; 2020-2022 <a href="https://twitter.com/mimonelu" target="_blank" noreferrer>@mimonelu</a></small>
     </footer>
   </div>
 </template>
@@ -50,24 +62,35 @@ export default class HomeView extends Vue {
 
   volume: number = 0.5
 
-  roughness: number = 15
+  roughness: number = 10
+
+  detail: number = 1
 
   created () {
     this.loadData()
+  }
+
+  mounted () {
+    if (this.$refs.playButton) {
+      (this.$refs.playButton as HTMLButtonElement).focus()
+    }
   }
 
   loadData () {
     const data = JSON.parse(localStorage.getItem('data') || '{}')
     data.volume = data.volume === undefined ? this.volume : data.volume
     data.roughness = data.roughness === undefined ? this.roughness : data.roughness
+    data.detail = data.detail === undefined ? this.detail : data.detail
     this.setVolume(data.volume)
     this.setRoughness(data.roughness)
+    this.setDetail(data.detail)
   }
 
   saveData () {
     localStorage.setItem('data', JSON.stringify({
       volume: this.volume,
       roughness: this.roughness,
+      detail: this.detail,
     }))
   }
 
@@ -91,6 +114,16 @@ export default class HomeView extends Vue {
     this.saveData()
   }
 
+  setDetail (value: number) {
+    const isDiffer = this.detail !== value
+    this.detail = value
+    if (isDiffer && this.audio.playing) {
+      this.audio.stop()
+      this.play()
+    }
+    this.saveData()
+  }
+
   get playButtonLabel (): string {
     return this.audio.playing ? 'Stop' : 'Play'
   }
@@ -107,6 +140,7 @@ export default class HomeView extends Vue {
     this.audio.prepare({
       volume: this.volume,
       roughness: this.roughness,
+      detail: this.detail,
     })
     this.audio.play()
   }
