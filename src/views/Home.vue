@@ -25,7 +25,7 @@
         <span>{{ roughness }}</span>
       </li>
       <li>
-        <h3>Detail</h3>
+        <h3>Wave</h3>
         <range
           :min="1"
           :max="10"
@@ -42,7 +42,7 @@
       @click="toggle"
     >{{ playButtonLabel }}</button>
     <footer>
-      <small>Noise Machine v1.1 &copy; 2020-2022 <a href="https://twitter.com/mimonelu" target="_blank" noreferrer>@mimonelu</a></small>
+      <small>Noise Machine v1.2 &copy; 2020-2022 <a href="https://twitter.com/mimonelu" target="_blank" noreferrer>@mimonelu</a></small>
     </footer>
   </div>
 </template>
@@ -64,7 +64,7 @@ export default class HomeView extends Vue {
 
   roughness: number = 10
 
-  detail: number = 1
+  detail: number = 5
 
   created () {
     this.loadData()
@@ -175,6 +175,7 @@ export default class HomeView extends Vue {
     }
 
     h3 {
+      margin-right: 1rem;
       width: 10rem;
     }
 

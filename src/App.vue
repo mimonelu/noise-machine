@@ -12,11 +12,11 @@ import sandStorm from '@/assets/scripts/sand-storm'
 export default class App extends Vue {
   mounted () {
     sandStorm(this.$el as HTMLElement, 640, 640, {
-      r: [ 0, 24 ],
-      g: [ 0, 48 ],
-      b: [ 0, 96 ],
+      r: [ 16, 16 ],
+      g: [ 16, 64 ],
+      b: [ 16, 128 ],
       a: [ 255, 255 ],
-    }, 16)
+    }, 8)
   }
 }
 </script>
